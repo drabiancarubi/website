@@ -82,5 +82,13 @@ Keep the existing SPF TXT record (email forwarding).
 - Full OG + Twitter `summary_large_image` tag sets on both pages (localized descriptions; `og:url` points at the future canonical domain).
 - ⚠️ `og:image`/`twitter:image` currently use the github.io URL — **swap to https://drabiancarubi.com/assets/img/og-card.png when HTTPS on the custom domain is live** (same moment as enforcing HTTPS). Note: WhatsApp/Facebook cache previews aggressively; re-scrape via https://developers.facebook.com/tools/debug/ if a stale card shows.
 
+## 2026-09-22 — Portrait salvage
+
+- Pixel analysis of the client photo ('/Users/jcordoba/Desktop/PNG image 2 Background Removed.png'): real alpha channel on top, but the background-removal app **baked the checkerboard pattern into opaque pixels from row ~1128 down** (of 2560) — lower half unrecoverable (pattern blended into coat/hair colors).
+- Salvaged the clean top zone as a **circular portrait medallion**: 1000px circle centered on the face at source coords (650, 620) (crop box 150,120→1150,1120), circular alpha mask (also excludes the laryngoscope at x>1150), exported 900×900 → `assets/img/dra-bianca-portrait.png/.webp`.
+- Medallion replaces the BR monogram in `.hero-emblem` (`.hero-portrait` CSS: white ring, lavender radial backing). Also added to the OG share card (`og-card.html` → re-rendered `og-card.png`).
+- The `.hero-emblem span` monogram CSS is retained as fallback if the photo is ever pulled again.
+- A full-length replacement photo is still requested from the client (original camera file, portrait ≥1200×1600); when it arrives, consider returning to the full-height hero cutout.
+
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
