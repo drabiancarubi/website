@@ -278,6 +278,15 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   display: grid;
   place-items: center;
 }
+.hero-portrait {
+  width: min(340px, 76%);
+  height: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #ffffff, var(--lav-200) 75%);
+  border: 8px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 50px rgba(50, 19, 95, 0.28);
+}
+
 .hero-emblem span {
   font-family: var(--font-display);
   font-size: clamp(4rem, 8vw, 6rem);

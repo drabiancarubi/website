@@ -16,7 +16,7 @@
     display: flex; align-items: center;
     position: relative;
   }
-  .wrap { padding: 0 90px; position: relative; z-index: 2; }
+  .wrap { padding: 0 90px; position: relative; z-index: 2; max-width: 780px; }
   .mark {
     width: 92px; height: 92px; border-radius: 26px;
     background: linear-gradient(135deg, #b83270, #7126ff);
@@ -36,10 +36,10 @@
   }
   .loc {
     display: inline-flex; align-items: center; gap: 14px;
-    font-size: 25px; font-weight: 500; color: #e1dcfd;
+    font-size: 22px; font-weight: 500; color: #e1dcfd; white-space: nowrap;
     background: rgba(255,255,255,0.10);
     border: 1px solid rgba(225,220,253,0.35);
-    border-radius: 999px; padding: 14px 30px;
+    border-radius: 999px; padding: 13px 26px;
   }
   .loc .dot { width: 11px; height: 11px; border-radius: 50%; background: #e64f96; }
   .ring {
@@ -48,11 +48,19 @@
   .r1 { width: 560px; height: 560px; right: -160px; top: -160px; }
   .r2 { width: 380px; height: 380px; right: -60px; top: -60px; }
   .r3 { width: 760px; height: 760px; right: -260px; top: -260px; }
+  .portrait {
+    position: absolute; right: 84px; top: 50%; transform: translateY(-50%);
+    width: 330px; height: 330px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 25%, #ffffff, #d2c9f7 75%);
+    border: 9px solid rgba(255,255,255,0.9);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.4);
+    z-index: 3;
+  }
 </style>
 </head>
 <body>
   <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
-  <div class="wrap">
+  <img class="portrait" src="dra-bianca-portrait.png"><div class="wrap">
     <div class="mark">BR</div>
     <h1>Dra. Bianca Rubí<br>Flores Reyes</h1>
     <div class="sub">Médico Especialista en Anestesiología</div>
