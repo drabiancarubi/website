@@ -74,7 +74,7 @@
         <a href="../" data-setlang="es">ES</a>
         <span class="active">EN</span>
       </nav>
-      <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Book</a>
+      <a class="btn btn-primary" href="#agenda">Book</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -93,7 +93,7 @@
         <p class="subtitle">Anesthesiologist · Certified by the Mexican Board of Anesthesiology</p>
         <p class="lead">Anesthesiology services for surgeons, dental surgeons, and procedures outside the operating room. Book my support directly and securely.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Book anesthesia support</a>
+          <a class="btn btn-primary" href="#agenda">Book anesthesia support</a>
           <a class="btn btn-ghost" href="#sobre-mi">Learn about my background</a>
         </div>
       </div>
@@ -250,12 +250,15 @@
   <!-- ============ CTA ============ -->
   <section id="agenda">
     <div class="container">
-      <div class="cta-band reveal">
+      <div class="section-head reveal">
+        <span class="eyebrow">Scheduling</span>
         <h2>Request and book my support</h2>
-        <p>Check my availability, indicate the type of procedure, location, and estimated duration, and receive direct confirmation before the procedure.</p>
-        <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Check availability and book</a>
-        <p class="note">Online scheduling — direct, with no intermediaries.</p>
+        <p>Check my real-time availability, pick a date and time, and describe your procedure. You will receive direct confirmation before the procedure — no intermediaries.</p>
       </div>
+      <div class="embed-card reveal">
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-consulta-pre-anestesica"></div>
+      </div>
+      <p class="embed-fallback">Trouble seeing the calendar? <a href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Open the booking page in a new tab ↗</a></p>
     </div>
   </section>
 
@@ -298,7 +301,7 @@
           <li>Indicate the type of procedure, date, location, and estimated duration.</li>
           <li>Receive direct confirmation before the procedure.</li>
         </ol>
-        <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Book now</a>
+        <a class="btn btn-primary" href="#agenda">Book now</a>
       </div>
     </div>
   </section>
@@ -317,5 +320,17 @@
 </footer>
 
 <script src="../assets/js/main.js"></script>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "consulta-pre-anestesica", {origin:"https://app.cal.com"});
+  Cal.config = Cal.config || {};
+  Cal.config.forwardQueryParams = true;
+  Cal.ns["consulta-pre-anestesica"]("inline", {
+    elementOrSelector:"#my-cal-inline-consulta-pre-anestesica",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica",
+  });
+  Cal.ns["consulta-pre-anestesica"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#b83270"},"dark":{"cal-brand":"#e64f96"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
 </body>
 </html>
