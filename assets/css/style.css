@@ -506,6 +506,40 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .cta-band .btn-primary { font-size: 1.05rem; padding: 1rem 2.2rem; }
 .cta-band .note { font-size: 0.85rem; margin-top: 1rem; opacity: 0.8; }
 
+/* ---------- FAQ ---------- */
+.faq { background: var(--white); }
+.faq-list { display: grid; gap: 0.9rem; max-width: 860px; }
+.faq-list details {
+  background: var(--lav-050);
+  border: 1px solid var(--lav-200);
+  border-radius: 14px;
+  padding: 1.05rem 1.4rem;
+}
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+  position: relative;
+  padding-right: 2.2rem;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--berry);
+}
+.faq-list details[open] summary::after { content: "–"; }
+.faq-list details p {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 /* ---------- Booking embed ---------- */
 .embed-card {
   background: var(--white);
