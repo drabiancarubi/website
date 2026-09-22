@@ -100,3 +100,10 @@ Three `gh` accounts on this machine; **drabiancarubi must be the active account*
 - Final pipeline: **rembg (isnet-general-use) with alpha matting** → targeted erase of a checker remnant in the bottom-left corner box (y>2050, x<220, flat gray mn≥125) → content-bbox crop → 1200w/640w WebP. Model cached at ~/.rembg. Coat, hair, and laryngoscope fully preserved.
 - **Hero badge cards removed entirely** per client feedback (they covered her on mobile); the same credentials/coverage info lives in the trust strip below the hero. `.hero-badge` CSS retained but unused.
 - Mobile overflow scare: screenshots via `--window-size=390` *without* mobile emulation misrender; with proper CDP mobile emulation both pages measure scrollWidth 390 = viewport, zero overflowing elements. Verify mobile with device emulation, not bare window-size.
+
+## 2026-09-22 — Photo v3 (final): natural headshot
+
+- Client provided `'/Users/jcordoba/Desktop/PNG image 5.png'` — a real photo (blurred wall background, no AI-smoothing, no checkerboard). Chosen over v2.
+- Same pipeline: rembg (isnet-general-use) + alpha matting → bbox crop → 1200w/640w WebP (`dra-bianca.webp` 1200×2118). Background "cleaning" is achieved by full replacement with the hero gradient panel.
+- Share-card medallion regenerated from this photo: square crop (0,250)→(1440,1690) of the cutout, circle mask; face taller than frame width, so the hair dome is trimmed (avatar convention) — never crop the chin.
+- Hero `<img>` width/height attrs must match the real file (currently 1200×2118) — update them whenever the photo is re-exported.
