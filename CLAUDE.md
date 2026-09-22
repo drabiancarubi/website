@@ -2,16 +2,29 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Status
+## What this is
 
-This project ("rubi") is brand new and currently empty — no source code, build tooling, or git repository exists yet.
+Professional website for **Dra. Bianca Rubí Flores Reyes**, anesthesiologist in Baja California Sur, Mexico. B2B referral site — the audience is *other doctors* (surgeons, dental surgeons, imaging units) who book her anesthesia services. Every primary CTA links to her cal.com booking page. See `DECISIONS.md` for the full decision log (palette, fonts, DNS plan, content sources) — **read it before making design or content changes, and append to it when making new decisions.**
 
-As the project takes shape, update this file with:
+## Stack & structure
 
-- **Commands**: how to build, lint, run tests (including a single test), and run the app.
-- **Architecture**: the big-picture structure that isn't obvious from reading a single file.
+Pure static HTML/CSS/JS — no framework, no build step, nothing to install. Hosted on GitHub Pages from `main` root at `drabiancarubi/website`.
 
-## Environment Notes
+- `index.html` — Spanish (primary, es-MX)
+- `en/index.html` — English mirror (same structure/IDs, translated text; keep the two in sync when editing content)
+- `assets/css/style.css` — entire design system (CSS custom properties at top define the palette)
+- `assets/js/main.js` — nav toggle, scroll reveal, year
+- `DECISIONS.md` — decision log; append, don't rewrite history
 
-- The project lives in a `.nosync` directory (`Projects_laptop.nosync`), which excludes it from iCloud sync — keep it that way for anything with heavy dependency folders (e.g. `node_modules`).
-- Not yet a git repository; run `git init` when starting real work.
+## Commands
+
+- Preview locally: `python3 -m http.server 8000` then open http://localhost:8000
+- Deploy: just `git push` (Pages serves `main` directly, live in ~1 min)
+
+## Hard rules
+
+- **All internal paths must be relative** (no leading `/`) — the site is served under the `/website/` subpath until the custom domain `drabiancarubi.com` (Namecheap, currently parked) is connected.
+- Spanish is the source of truth for copy; mirror changes into `en/`.
+- Section IDs are Spanish on both pages — never translate IDs (shared CSS/JS/anchors).
+- The booking URL `https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica` must remain on every CTA.
+- Pushing requires the **drabiancarubi** gh account to be active: `gh auth switch -u drabiancarubi`.
