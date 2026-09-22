@@ -63,5 +63,11 @@ Keep the existing SPF TXT record (email forwarding).
 - The repo was created private; **switched to public on 2026-09-22** because GitHub Pages on the Free plan requires a public repo. Pages enabled: `main` branch, root. Live at https://drabiancarubi.github.io/website/.
 - `og:image` / JSON-LD image currently point at the github.io URL — **swap to https://drabiancarubi.com/... when the custom domain goes live.**
 
+## 2026-09-22 — Photo removed / domain connection
+
+- **Hero photo removed** at client request: the delivered "background removed" PNG had the checkerboard transparency pattern baked into the pixels (visible artifacts near the hair) and the framing cropped her head. Replaced with a `.hero-emblem` monogram panel so the two-column hero layout is unchanged. `og:image`/JSON-LD image tags removed until a new photo arrives.
+- **Photo spec requested from client** (see chat): portrait 3:4, ≥1200×1600px, head fully in frame with headroom, original un-edited photo preferred (we do background removal ourselves), JPG/PNG/HEIC all fine.
+- **Custom domain set on GitHub Pages**: `cname=drabiancarubi.com`, CNAME file committed. Waiting on Namecheap records (A @ → 185.199.108–111.153, CNAME www → drabiancarubi.github.io). Enforce HTTPS after cert issuance.
+
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
