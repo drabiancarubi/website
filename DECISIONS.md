@@ -69,5 +69,11 @@ Keep the existing SPF TXT record (email forwarding).
 - **Photo spec requested from client** (see chat): portrait 3:4, ≥1200×1600px, head fully in frame with headroom, original un-edited photo preferred (we do background removal ourselves), JPG/PNG/HEIC all fine.
 - **Custom domain set on GitHub Pages**: `cname=drabiancarubi.com`, CNAME file committed. Waiting on Namecheap records (A @ → 185.199.108–111.153, CNAME www → drabiancarubi.github.io). Enforce HTTPS after cert issuance.
 
+## 2026-09-22 — Automatic language detection
+
+- Inline head script on `/` redirects first-time visitors whose browser reports no Spanish (`navigator.languages`) to `/en/` via `location.replace` (no history entry). The `/en/` page only redirects back if the stored preference is `es`.
+- A manual click on the ES/EN switch (or footer language link, `data-setlang` attr) stores `localStorage.lang`, which **always wins** over auto-detection — no redirect loops, choice sticks across visits.
+- Client-side redirect (not server/geo) because GitHub Pages has no server logic; browser language beats geolocation anyway (an American in Los Cabos still gets English).
+
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
