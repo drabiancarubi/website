@@ -30,3 +30,10 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Footer year
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
+
+// Remember an explicit language choice (overrides auto-detection)
+document.querySelectorAll('[data-setlang]').forEach(a =>
+  a.addEventListener('click', () => {
+    try { localStorage.setItem('lang', a.dataset.setlang); } catch (e) {}
+  })
+);

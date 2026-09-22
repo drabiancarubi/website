@@ -8,6 +8,13 @@
   <link rel="canonical" href="https://drabiancarubi.com/en/">
   <link rel="alternate" hreflang="es-MX" href="https://drabiancarubi.com/">
   <link rel="alternate" hreflang="en" href="https://drabiancarubi.com/en/">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('lang') === 'es') location.replace('../');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="website">
@@ -54,7 +61,7 @@
     </ul>
     <div class="nav-actions">
       <nav class="lang-switch" aria-label="Language">
-        <a href="../">ES</a>
+        <a href="../" data-setlang="es">ES</a>
         <span class="active">EN</span>
       </nav>
       <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Book</a>
@@ -293,7 +300,7 @@
     <div class="footer-links">
       <a href="https://www.instagram.com/dra.biancarubifloresrey/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@biancaflores8195" target="_blank" rel="noopener">TikTok</a>
-      <a href="../">Español</a>
+      <a href="../" data-setlang="es">Español</a>
     </div>
   </div>
 </footer>

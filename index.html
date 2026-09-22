@@ -8,6 +8,21 @@
   <link rel="canonical" href="https://drabiancarubi.com/">
   <link rel="alternate" hreflang="es-MX" href="https://drabiancarubi.com/">
   <link rel="alternate" hreflang="en" href="https://drabiancarubi.com/en/">
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem('lang');
+        if (pref === 'en') { location.replace('en/'); return; }
+        if (pref) return;
+        var langs = navigator.languages || [navigator.language || 'es'];
+        var wantsSpanish = false;
+        for (var i = 0; i < langs.length; i++) {
+          if (/^es/i.test(langs[i])) { wantsSpanish = true; break; }
+        }
+        if (!wantsSpanish) location.replace('en/');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="website">
@@ -55,7 +70,7 @@
     <div class="nav-actions">
       <nav class="lang-switch" aria-label="Idioma">
         <span class="active">ES</span>
-        <a href="en/">EN</a>
+        <a href="en/" data-setlang="en">EN</a>
       </nav>
       <a class="btn btn-primary" href="https://cal.com/bianca-rubi-flores-reyes-wnescc/consulta-pre-anestesica" target="_blank" rel="noopener">Agendar</a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -293,7 +308,7 @@
     <div class="footer-links">
       <a href="https://www.instagram.com/dra.biancarubifloresrey/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@biancaflores8195" target="_blank" rel="noopener">TikTok</a>
-      <a href="en/">English</a>
+      <a href="en/" data-setlang="en">English</a>
     </div>
   </div>
 </footer>
