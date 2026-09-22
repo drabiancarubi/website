@@ -92,3 +92,11 @@ Keep the existing SPF TXT record (email forwarding).
 
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
+
+## 2026-09-22 — Photo v2: ML cutout, badges removed
+
+- Client provided `'/Users/jcordoba/Desktop/PNG image 2.png'` — same shot, full body, checkerboard baked in as background (RGB, no alpha).
+- Color-threshold flood-fill extraction **ate parts of the white coat** (flat bright coat pixels are indistinguishable from checker tiles by color) — client caught it. Lesson: never color-match white-on-white; use segmentation.
+- Final pipeline: **rembg (isnet-general-use) with alpha matting** → targeted erase of a checker remnant in the bottom-left corner box (y>2050, x<220, flat gray mn≥125) → content-bbox crop → 1200w/640w WebP. Model cached at ~/.rembg. Coat, hair, and laryngoscope fully preserved.
+- **Hero badge cards removed entirely** per client feedback (they covered her on mobile); the same credentials/coverage info lives in the trust strip below the hero. `.hero-badge` CSS retained but unused.
+- Mobile overflow scare: screenshots via `--window-size=390` *without* mobile emulation misrender; with proper CDP mobile emulation both pages measure scrollWidth 390 = viewport, zero overflowing elements. Verify mobile with device emulation, not bare window-size.
