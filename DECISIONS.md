@@ -75,5 +75,12 @@ Keep the existing SPF TXT record (email forwarding).
 - A manual click on the ES/EN switch (or footer language link, `data-setlang` attr) stores `localStorage.lang`, which **always wins** over auto-detection — no redirect loops, choice sticks across visits.
 - Client-side redirect (not server/geo) because GitHub Pages has no server logic; browser language beats geolocation anyway (an American in Los Cabos still gets English).
 
+## 2026-09-22 — Link-preview (share) card
+
+- Designed a branded 1200×630 OG card (`assets/img/og-card.png`) — violet/berry gradient, BR monogram, name, specialty, coverage cities. Source kept at `assets/img/og-card.html`; re-render after edits with headless Chrome:
+  `'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --screenshot="$PWD/assets/img/og-card.png" --window-size=1200,630 --hide-scrollbars --virtual-time-budget=6000 "file://$PWD/assets/img/og-card.html"`
+- Full OG + Twitter `summary_large_image` tag sets on both pages (localized descriptions; `og:url` points at the future canonical domain).
+- ⚠️ `og:image`/`twitter:image` currently use the github.io URL — **swap to https://drabiancarubi.com/assets/img/og-card.png when HTTPS on the custom domain is live** (same moment as enforcing HTTPS). Note: WhatsApp/Facebook cache previews aggressively; re-scrape via https://developers.facebook.com/tools/debug/ if a stale card shows.
+
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
