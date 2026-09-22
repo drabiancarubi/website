@@ -67,7 +67,7 @@ Keep the existing SPF TXT record (email forwarding).
 
 - **Hero photo removed** at client request: the delivered "background removed" PNG had the checkerboard transparency pattern baked into the pixels (visible artifacts near the hair) and the framing cropped her head. Replaced with a `.hero-emblem` monogram panel so the two-column hero layout is unchanged. `og:image`/JSON-LD image tags removed until a new photo arrives.
 - **Photo spec requested from client** (see chat): portrait 3:4, ≥1200×1600px, head fully in frame with headroom, original un-edited photo preferred (we do background removal ourselves), JPG/PNG/HEIC all fine.
-- **Custom domain set on GitHub Pages**: `cname=drabiancarubi.com`, CNAME file committed. Waiting on Namecheap records (A @ → 185.199.108–111.153, CNAME www → drabiancarubi.github.io). Enforce HTTPS after cert issuance.
+- **Custom domain LIVE (2026-09-22)**: Namecheap records applied (4× A @ → 185.199.108–111.153, CNAME www → drabiancarubi.github.io), cert issued, `https_enforced=true`. Verified: apex+/en/ 200, www→apex 301, http→https 301, github.io→domain 301. og:image now points at drabiancarubi.com.
 
 ## 2026-09-22 — Automatic language detection
 
