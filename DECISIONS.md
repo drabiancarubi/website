@@ -107,3 +107,10 @@ Three `gh` accounts on this machine; **drabiancarubi must be the active account*
 - Same pipeline: rembg (isnet-general-use) + alpha matting → bbox crop → 1200w/640w WebP (`dra-bianca.webp` 1200×2118). Background "cleaning" is achieved by full replacement with the hero gradient panel.
 - Share-card medallion regenerated from this photo: square crop (0,250)→(1440,1690) of the cutout, circle mask; face taller than frame width, so the hair dome is trimmed (avatar convention) — never crop the chin.
 - Hero `<img>` width/height attrs must match the real file (currently 1200×2118) — update them whenever the photo is re-exported.
+
+## 2026-09-22 — Cal.com inline embed
+
+- Inline booking calendar embedded in `#agenda` on both pages (replaces the plain CTA band). Client-provided embed snippet, namespace `consulta-pre-anestesica`, with `"theme":"light"` forced and `cssVarsPerTheme` brand colors: light `#b83270`, dark `#e64f96`.
+- Nav "Agendar/Book", hero primary CTA, and contact-card button now scroll to `#agenda` (internal anchors); the direct cal.com URL remains as the fallback link under the embed and should stay somewhere on the page always.
+- `.embed-card` wraps the widget (white card, min-height 560px to prevent layout jump); `useSlotsViewOnSmallScreen` keeps it usable on phones.
+- Verified live: iframe loads (~570px tall), brand color visible on selected date.
