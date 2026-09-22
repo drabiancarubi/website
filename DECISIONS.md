@@ -59,5 +59,9 @@ Domain `drabiancarubi.com` is at **Namecheap** (currently parked). When connecti
 3. Enable "Enforce HTTPS" once the cert is issued.
 Keep the existing SPF TXT record (email forwarding).
 
+### Repo visibility
+- The repo was created private; **switched to public on 2026-09-22** because GitHub Pages on the Free plan requires a public repo. Pages enabled: `main` branch, root. Live at https://drabiancarubi.github.io/website/.
+- `og:image` / JSON-LD image currently point at the github.io URL — **swap to https://drabiancarubi.com/... when the custom domain goes live.**
+
 ### GitHub account note
 Three `gh` accounts on this machine; **drabiancarubi must be the active account** for pushes (`gh auth switch -u drabiancarubi`). Its fine-grained PAT could not create repos via API; repo was created manually on github.com.
