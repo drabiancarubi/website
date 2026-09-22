@@ -314,8 +314,8 @@ section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   color: var(--muted);
   font-size: 0.72rem;
 }
-.badge-cert { left: 0; top: 32%; max-width: 190px; }
-.badge-loc { right: 0; bottom: 12%; max-width: 200px; }
+.badge-cert { left: 0; top: 52%; max-width: 190px; }
+.badge-loc { right: 0; bottom: 6%; max-width: 200px; }
 
 /* ---------- Trust strip ---------- */
 .trust {
