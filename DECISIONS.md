@@ -114,3 +114,11 @@ Three `gh` accounts on this machine; **drabiancarubi must be the active account*
 - Nav "Agendar/Book", hero primary CTA, and contact-card button now scroll to `#agenda` (internal anchors); the direct cal.com URL remains as the fallback link under the embed and should stay somewhere on the page always.
 - `.embed-card` wraps the widget (white card, min-height 560px to prevent layout jump); `useSlotsViewOnSmallScreen` keeps it usable on phones.
 - Verified live: iframe loads (~570px tall), brand color visible on selected date.
+
+## 2026-09-22 — SEO (on-site work done)
+
+- **Titles/descriptions** rewritten city-first for local queries: ES "Anestesióloga en La Paz, Los Cabos y San José del Cabo | …", EN "Anesthesiologist in La Paz & Los Cabos, Mexico | …".
+- **Structured data**: rich `Physician` JSON-LD on both pages (areaServed cities, availableService procedures, memberOf Consejo, alumniOf, ReserveAction → cal.com) + `FAQPage` JSON-LD backed by a *visible* FAQ accordion section (`#preguntas`, 6 questions targeting long-tail local queries). Google requires FAQ markup to match visible content — never add markup without the visible section.
+- **Technical**: `robots.txt` + `sitemap.xml` (with hreflang alternates + x-default, also added to both heads), geo.region/geo.placename metas, hero image `<link rel="preload">`, Cal embed lazy-loaded via IntersectionObserver (rootMargin 900px, 8s fallback) for LCP.
+- **Off-site actions pending (user)**: Google Search Console verification + sitemap submit; Google Business Profile (critical for Maps); Doctoralia profile; hospital/clinic website links; Instagram/TikTok bio links to the domain.
+- When content changes meaningfully, bump `<lastmod>` in sitemap.xml.
