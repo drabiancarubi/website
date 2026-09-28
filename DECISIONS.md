@@ -1,7 +1,19 @@
 # Design & Build Decisions — drabiancarubi.com
 
+## Current state (as of 2026-09-28)
+
+**Live**: https://drabiancarubi.com (ES) + /en/ (EN), GitHub Pages from `main` of `drabiancarubi/website` (public), HTTPS enforced, www→apex, github.io→domain.
+- **Hero photo**: natural headshot ("PNG image 5.png") cut out with rembg, on the lavender gradient panel. No badges over the photo.
+- **Booking**: Cal.com inline embed in `#agenda` (lazy-loaded, light theme, brand `#b83270`/`#e64f96`); nav/hero/contact CTAs scroll to it; fallback link opens cal.com.
+- **Languages**: auto-detection by browser language with `localStorage.lang` override.
+- **Share card**: branded 1200×630 `og-card.png` (headshot medallion) + full OG/Twitter tags, both pages.
+- **SEO on-site**: city-first titles/descriptions, `Physician` + `FAQPage` JSON-LD, visible FAQ section (`#preguntas`), robots.txt + sitemap.xml (hreflang + x-default), geo metas, hero preload.
+- **Pending (user, off-site)**: Google Business Profile (started 2026-09-22, ON HOLD by user); Google Search Console + sitemap submit; Doctoralia; bio/hospital backlinks. Confirm hospital name spelling "María Luisa de la Peña" with Dra. Rubí.
+
+---
+
 Log of every meaningful decision so future work never depends on chat memory.
-Newest entries at the bottom. Date format: YYYY-MM-DD.
+Newest entries at the bottom. Date format: YYYY-MM-DD. Entries are history — later entries supersede earlier ones; the Current state section above always wins.
 
 ## 2026-09-22 — Initial build
 
@@ -14,8 +26,8 @@ Newest entries at the bottom. Date format: YYYY-MM-DD.
 ### Tech stack
 - **Pure static HTML/CSS/JS, no framework, no build step.** Rationale: GitHub Free + GitHub Pages hosting, zero cost, zero maintenance, trivially editable. A build system adds nothing for a ~2-page brochure site.
 - Hosting: GitHub Pages from `main` branch root of `drabiancarubi/website`.
-  Initially at `https://drabiancarubi.github.io/website/`; custom domain `drabiancarubi.com` to be connected later (see DNS section).
-- **All internal paths are relative** (no leading `/`) because the project-page URL lives under the `/website/` subpath until the custom domain is attached.
+  Initially at `https://drabiancarubi.github.io/website/`; custom domain connected 2026-09-22 (see below).
+- **All internal paths are relative** (no leading `/`) — required while the site lived under the `/website/` subpath; keep it that way.
 
 ### Languages
 - Spanish (es-MX) is primary at `/index.html`. English at `/en/index.html`.
@@ -47,11 +59,11 @@ Direction: feminine + professional + "female power" — berry/violet with airy l
 - No patient-facing language; copy addresses colleagues ("Bienvenido(a), colega").
 
 ### Assets
-- Portrait: background-removed PNG from client, resized to 1200px (`dra-bianca.png`) and 640px (`dra-bianca-sm.png`) via `sips`, used with `srcset`.
+- Portrait: (superseded — see "Photo v3" below for the current pipeline; filenames `dra-bianca.png/.webp` + `-sm` variants with `srcset` remain).
 - Favicon: inline SVG monogram "BR" on berry→purple gradient (`assets/img/favicon.svg`).
 
-### DNS (to do later)
-Domain `drabiancarubi.com` is at **Namecheap** (currently parked). When connecting:
+### DNS (completed 2026-09-22)
+Domain `drabiancarubi.com` is at **Namecheap**. Steps that were applied:
 1. In repo settings → Pages → custom domain `drabiancarubi.com` (creates CNAME file).
 2. At Namecheap: delete the parking CNAME (`www` → parkingpage.namecheap.com) and URL-redirect record; add
    - `A @` → 185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153
